@@ -23,3 +23,4 @@ you should also have access to `javac`. You can check this by running:
 
 ### Up and Running Options
 
+Run this command from your terminal: `java -jar ./target/company-coordinator-app-0.0.1-SNAPSHOT.jar`
