@@ -18,6 +18,8 @@ public class Platform {
     @Column(name = "description")
     private String description;
 
+
+
     public Platform() {
     }
 
