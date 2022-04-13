@@ -15,7 +15,7 @@ import java.util.Set;
 @Table(name = "organizations")
 public class Organization {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "organization_generator")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(name = "name")
     private String name;
