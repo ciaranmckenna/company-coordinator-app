@@ -5,20 +5,22 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "platforms")
 public class Platform {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "platform_generator")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(name = "name")
     private String name;
     @Column(name = "description")
     private String description;
 
-
+    @OneToOne(mappedBy = "platform")
+    private Application application;
 
     public Platform() {
     }

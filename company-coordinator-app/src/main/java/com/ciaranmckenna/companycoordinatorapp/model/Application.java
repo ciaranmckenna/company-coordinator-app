@@ -1,12 +1,13 @@
 package com.ciaranmckenna.companycoordinatorapp.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -20,9 +21,9 @@ public class Application {
     @Column(name = "description")
     private String description;
 
-    @ManyToOne
-    @JoinColumn(name = "organization_id")
-    private Organization organization;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "platform_id", referencedColumnName = "id")
+    private Platform platform;
 
     public Application() {
     }
@@ -56,5 +57,19 @@ public class Application {
         this.description = description;
     }
 
+    /*public Set<Organization> getOrganizations() {
+        return organizations;
+    }
 
+    public void setOrganizations(Set<Organization> organizations) {
+        this.organizations = organizations;
+    }*/
+
+    public Platform getPlatform() {
+        return platform;
+    }
+
+    public void setPlatform(Platform platform) {
+        this.platform = platform;
+    }
 }
