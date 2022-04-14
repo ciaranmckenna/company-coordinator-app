@@ -33,6 +33,12 @@ public class Application {
         this.description = description;
     }
 
+    public Application(Long id, String name, String description) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+    }
+
     public Long getId() {
         return id;
     }
@@ -57,14 +63,6 @@ public class Application {
         this.description = description;
     }
 
-    /*public Set<Organization> getOrganizations() {
-        return organizations;
-    }
-
-    public void setOrganizations(Set<Organization> organizations) {
-        this.organizations = organizations;
-    }*/
-
     public Platform getPlatform() {
         return platform;
     }
@@ -72,4 +70,5 @@ public class Application {
     public void setPlatform(Platform platform) {
         this.platform = platform;
     }
+
 }
