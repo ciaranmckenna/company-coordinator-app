@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -33,7 +34,19 @@ public class OrganizationController {
     }
 
     @GetMapping("/{id}/applications")
-    public ResponseEntity<Set<Application>> getAllApplicationsWithOrganizationId(@PathVariable("id")final Long id){
+    public ResponseEntity<Set<Application>> getAllApplicationsWithOrganizationId(@PathVariable("id") final Long id, @RequestParam(required = false) String letter){
+        if (letter !=null){
+            return ResponseEntity.ok(organizationService.getAllApplicationsWithOrganizationIdStartingWithLetter(id, letter));
+        }else
         return ResponseEntity.ok(organizationService.getAllApplicationsWithOrganizationId(id));
     }
+
+    /*@RequestMapping("/{id}/applications")
+    public ResponseEntity<Set<Application>> getAllApplicationsWithOrganizationId(@PathVariable("id")final Long id, @RequestParam(required = false) String letter) {
+        if (letter != null) {
+            return ResponseEntity.ok(organizationService.getAllApplicationsWithOrganizationIdStartingWithLetter(letter));
+        } else
+            return ResponseEntity.ok(organizationService.getAllApplicationsWithOrganizationId(id));
+    }*/
+
 }

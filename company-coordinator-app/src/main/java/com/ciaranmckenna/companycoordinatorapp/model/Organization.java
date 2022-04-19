@@ -1,6 +1,7 @@
 package com.ciaranmckenna.companycoordinatorapp.model;
 
 import javax.persistence.Column;
+import javax.persistence.Embeddable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,6 +14,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
+@Embeddable
 @Table(name = "organizations")
 public class Organization {
     @Id
@@ -64,4 +66,5 @@ public class Organization {
     public void setApplications(Set<Application> applications) {
         this.applications = applications;
     }
+
 }

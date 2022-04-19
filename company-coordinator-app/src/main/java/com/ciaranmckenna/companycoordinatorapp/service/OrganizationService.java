@@ -2,6 +2,7 @@ package com.ciaranmckenna.companycoordinatorapp.service;
 
 import com.ciaranmckenna.companycoordinatorapp.model.Application;
 import com.ciaranmckenna.companycoordinatorapp.model.Organization;
+import com.ciaranmckenna.companycoordinatorapp.repository.ApplicationRepository;
 import com.ciaranmckenna.companycoordinatorapp.repository.OrganizationRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -14,9 +15,11 @@ import java.util.Set;
 public class OrganizationService {
 
     private final OrganizationRepository organizationRepository;
+    private final ApplicationRepository applicationRepository;
 
-    public OrganizationService(final OrganizationRepository organizationRepository) {
+    public OrganizationService(final OrganizationRepository organizationRepository, final ApplicationRepository applicationRepository) {
         this.organizationRepository = organizationRepository;
+        this.applicationRepository = applicationRepository;
     }
 
 
@@ -30,6 +33,10 @@ public class OrganizationService {
 
     public Set<Application> getAllApplicationsWithOrganizationId(final Long id){
         return organizationRepository.findById(id).get().getApplications();
+    }
+
+    public Set<Application> getAllApplicationsWithOrganizationIdStartingWithLetter(Long id, final String letter){
+        return applicationRepository.findByOrgIdAndApplicationNameLike(id, letter);
     }
 
 }

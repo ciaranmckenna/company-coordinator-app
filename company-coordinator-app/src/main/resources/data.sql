@@ -19,8 +19,3 @@ INSERT INTO organization_application_lookup (organization_id, application_id) VA
 INSERT INTO organization_application_lookup (organization_id, application_id) VALUES ('3', '2');
 INSERT INTO organization_application_lookup (organization_id, application_id) VALUES ('3', '4');
 INSERT INTO organization_application_lookup (organization_id, application_id) VALUES ('3', '5');
-
-
-
-
-

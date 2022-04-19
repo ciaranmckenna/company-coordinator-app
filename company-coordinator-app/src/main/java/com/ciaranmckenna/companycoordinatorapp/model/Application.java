@@ -21,7 +21,7 @@ public class Application {
     @Column(name = "description")
     private String description;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "platform_id", referencedColumnName = "id")
     private Platform platform;
 
@@ -29,12 +29,6 @@ public class Application {
     }
 
     public Application(String name, String description) {
-        this.name = name;
-        this.description = description;
-    }
-
-    public Application(Long id, String name, String description) {
-        this.id = id;
         this.name = name;
         this.description = description;
     }
