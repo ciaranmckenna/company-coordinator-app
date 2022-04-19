@@ -1,5 +1,6 @@
 package com.ciaranmckenna.companycoordinatorapp.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -25,8 +26,8 @@ public class Platform {
     @Column(name = "description")
     private String description;
 
-    @OneToOne(mappedBy = "platform")
-    private Application application;
+    @OneToMany(mappedBy = "platform", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Application> application;
 
     public Platform() {
     }

@@ -39,9 +39,9 @@ public class OrganizationController {
     }
 
     @GetMapping("/{id}/applications")
-    public ResponseEntity<Set<Application>> getAllApplicationsWithOrganizationId(@PathVariable("id") final Long id, @RequestParam(required = false) String letter){
-        if (letter !=null){
-            return ResponseEntity.ok(organizationService.getAllApplicationsWithOrganizationIdStartingWithLetter(id, letter));
+    public ResponseEntity<Set<Application>> getAllApplicationsWithOrganizationId(@PathVariable("id") final Long id, @RequestParam(required = false) String query){
+        if (query !=null){
+            return ResponseEntity.ok(organizationService.getAllApplicationsWithOrganizationIdStartingWithLetter(id, query));
         }else
         return ResponseEntity.ok(organizationService.getAllApplicationsWithOrganizationId(id));
     }
