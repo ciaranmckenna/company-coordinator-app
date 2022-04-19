@@ -25,27 +25,23 @@ public interface ApplicationRepository extends JpaRepository<Application, Long> 
     where oalu.organization_id = :org_id*/
 
 
-    //@Query("SELECT t FROM Tutorial t WHERE t.published=:isPublished AND t.level BETWEEN :start AND :end")
-    //List<Tutorial> findByLevelBetween(@Param("start") int start, @Param("end") int end, @Param("isPublished") boolean isPublished);
+
 
 
     // /organizations/3/applications?query=C
 
     /*@Query("FROM Application WHERE name=?1 order by name")
-    Set<Application> findByOrganizationNameLikeCaseInsensitive(Long id, String name);*/
+    Set<Application> findByOrgIdAndApplicationNameLike(Long id, String name);*/
 
 
    /* @Query("SELECT * FROM Application")
     Set<Application> findByOrganizationNameLikeCaseInsensitive(Character name);*/
 
-    /*@Query("FROM Application WHERE name =?1")
-    Set<Application> findByOrgIdAndApplicationNameLike(Long id, String name);*/
+    @Query("FROM Application WHERE name =?1")
+    Set<Application> findByOrgIdAndApplicationNameLike(Long id, String name);
 
     //@Query(value = "SELECT * FROM applications WHERE name LIKE 'c%'", nativeQuery = true)
 
     //Set<Application> findByOrganizationNameContaining(String name, Sort sort);
-
-    /*Set<Application> findByOrganizationNameOrderByLevelAsc(String name);
-    @Query("SELECT o FROM Tutorial t WHERE t.published=true ORDER BY t.createdAt DESC")*/
 
 }

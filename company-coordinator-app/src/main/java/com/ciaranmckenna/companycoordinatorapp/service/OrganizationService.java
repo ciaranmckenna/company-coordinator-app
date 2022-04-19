@@ -39,4 +39,9 @@ public class OrganizationService {
         return applicationRepository.findByOrgIdAndApplicationNameLike(id, letter);
     }
 
+    public Organization findByOrganizationName(final String letter){
+        return organizationRepository.findByOrganizationNameLike(letter);
+    }
+
+    // findByOrgIdAndApplicationNameLike
 }

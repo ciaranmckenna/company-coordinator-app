@@ -13,14 +13,9 @@ import java.util.Set;
 public interface OrganizationRepository extends JpaRepository<Organization, Long> {
 
 
-    /*@Query("SELECT a FROM Application a WHERE LOWER (a.name) LIKE LOWER(CONCAT('%', ?1,'%'))")
-    Set<Application> findByOrganizationNameLikeCaseInsensitive(String name);*/
-
-    /*Set<Application> findByOrganizationNameOrderByLevelAsc(String name);
-    @Query("SELECT o FROM Tutorial t WHERE t.published=true ORDER BY t.createdAt DESC")*/
-
-    /*@Query("SELECT o FROM Organization o WHERE (o.applications) = :id")
-    Set<Application> findByOrgIdAndApplicationNameLike(@Param("name") String name);*/
+    // find organization by the organization name that has been passed in
+    @Query("FROM Organization WHERE name =?1")
+    Organization findByOrganizationNameLike(@Param("name") String name);
 
 
 }

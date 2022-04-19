@@ -12,10 +12,10 @@ INSERT INTO applications (name, description, platform_id) VALUES ('Sage', 'Accou
 INSERT INTO applications (name, description, platform_id) VALUES ('Change Mgmt', 'Change Application', '3');
 INSERT INTO applications (name, description, platform_id) VALUES ('Release Mgmt', 'Release Application', '3');
 
-INSERT INTO organization_application_lookup (organization_id, application_id) VALUES ('1', '1');
+/*INSERT INTO organization_application_lookup (organization_id, application_id) VALUES ('1', '1');
 INSERT INTO organization_application_lookup (organization_id, application_id) VALUES ('1', '2');
 INSERT INTO organization_application_lookup (organization_id, application_id) VALUES ('2', '2');
 INSERT INTO organization_application_lookup (organization_id, application_id) VALUES ('2', '3');
 INSERT INTO organization_application_lookup (organization_id, application_id) VALUES ('3', '2');
 INSERT INTO organization_application_lookup (organization_id, application_id) VALUES ('3', '4');
-INSERT INTO organization_application_lookup (organization_id, application_id) VALUES ('3', '5');
+INSERT INTO organization_application_lookup (organization_id, application_id) VALUES ('3', '5');*/

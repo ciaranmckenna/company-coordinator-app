@@ -28,6 +28,13 @@ public class OrganizationController {
         return ResponseEntity.ok(organizationService.getAllOrganizations());
     }
 
+    @GetMapping("/name")
+    public ResponseEntity<Organization> getOrganizationByName(String name){
+        return ResponseEntity.ok(organizationService.findByOrganizationName(name));
+    }
+
+    // return ResponseEntity.ok(organizationService.getAllOrganizationStartingWithName(name));
+
     @GetMapping("/{id}")
     public ResponseEntity<Organization> getOrganizationByID(@PathVariable("id") final Long id){
         return ResponseEntity.ok(organizationService.getOrganizationById(id));
@@ -40,13 +47,5 @@ public class OrganizationController {
         }else
         return ResponseEntity.ok(organizationService.getAllApplicationsWithOrganizationId(id));
     }
-
-    /*@RequestMapping("/{id}/applications")
-    public ResponseEntity<Set<Application>> getAllApplicationsWithOrganizationId(@PathVariable("id")final Long id, @RequestParam(required = false) String letter) {
-        if (letter != null) {
-            return ResponseEntity.ok(organizationService.getAllApplicationsWithOrganizationIdStartingWithLetter(letter));
-        } else
-            return ResponseEntity.ok(organizationService.getAllApplicationsWithOrganizationId(id));
-    }*/
 
 }
