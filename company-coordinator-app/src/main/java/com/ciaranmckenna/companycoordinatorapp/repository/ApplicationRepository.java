@@ -14,21 +14,13 @@ import java.util.Set;
 @Repository
 public interface ApplicationRepository extends JpaRepository<Application, Long> {
 
+    /*@Query("FROM Application WHERE name =?1")
+    Set<Application> findByOrgIdAndApplicationNameLike(Long id, String name);*/
 
-    /*@Query("SELECT a FROM Application a" +
+    @Query("SELECT a FROM Application a" +
             "    LEFT JOIN OrgAppMapper oalu ON ( a.id = oalu.applicationId)" +
-            "    where oalu.organisationId = :org_id AND a.name LIKE %:name")
-    Set<Application> findByOrgIdAndApplicationNameLike(@Param("org_id") Long org_id, @Param("name") String name);*/
-
-    /*SELECT a FROM Application a
-    LEFT JOIN organization_application_lookup oalu ON ( a.id = oalu.application_id)
-    where oalu.organization_id = :org_id*/
-
-
-
-
-
-    // /organizations/3/applications?query=C
+            "    where oalu.organizationId = :org_id AND a.name LIKE %:name")
+    Set<Application> findByOrgIdAndApplicationNameLike(@Param("org_id") Long org_id, @Param("name") String name);
 
     /*@Query("FROM Application WHERE name=?1 order by name")
     Set<Application> findByOrgIdAndApplicationNameLike(Long id, String name);*/
@@ -36,9 +28,6 @@ public interface ApplicationRepository extends JpaRepository<Application, Long> 
 
    /* @Query("SELECT * FROM Application")
     Set<Application> findByOrganizationNameLikeCaseInsensitive(Character name);*/
-
-    @Query("FROM Application WHERE name =?1")
-    Set<Application> findByOrgIdAndApplicationNameLike(Long id, String name);
 
     //@Query(value = "SELECT * FROM applications WHERE name LIKE 'c%'", nativeQuery = true)
 

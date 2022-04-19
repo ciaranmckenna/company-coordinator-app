@@ -33,8 +33,6 @@ public class OrganizationController {
         return ResponseEntity.ok(organizationService.findByOrganizationName(name));
     }
 
-    // return ResponseEntity.ok(organizationService.getAllOrganizationStartingWithName(name));
-
     @GetMapping("/{id}")
     public ResponseEntity<Organization> getOrganizationByID(@PathVariable("id") final Long id){
         return ResponseEntity.ok(organizationService.getOrganizationById(id));

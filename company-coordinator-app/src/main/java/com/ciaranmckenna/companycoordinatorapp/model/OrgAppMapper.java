@@ -11,24 +11,24 @@ public class OrgAppMapper {
 
     @EmbeddedId
     @Column(name = "organization_id")
-    private Long organisationId;
+    private Long organizationId;
     @Column(name = "application_id")
     private Long applicationId;
 
     public OrgAppMapper() {
     }
 
-    public OrgAppMapper(Long organisationId, Long applicationId) {
-        this.organisationId = organisationId;
+    public OrgAppMapper(Long organizationId, Long applicationId) {
+        this.organizationId = organizationId;
         this.applicationId = applicationId;
     }
 
-    public Long getOrganisationId() {
-        return organisationId;
+    public Long getOrganizationId() {
+        return organizationId;
     }
 
-    public void setOrganisationId(Long organisationId) {
-        this.organisationId = organisationId;
+    public void setOrganizationId(Long organisationId) {
+        this.organizationId = organisationId;
     }
 
     public Long getApplicationId() {
