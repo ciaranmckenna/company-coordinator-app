@@ -10,8 +10,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Embeddable
@@ -30,7 +30,7 @@ public class Organization {
             name = "organization_application_lookup",
             joinColumns = @JoinColumn(name = "organization_id"),
             inverseJoinColumns = @JoinColumn(name = "application_id"))
-    private Set<Application> applications = new HashSet<>();
+    private List<Application> applications = new ArrayList<>();
 
     public Organization() {
     }
@@ -59,11 +59,11 @@ public class Organization {
         this.description = description;
     }
 
-    public Set<Application> getApplications() {
+    public List<Application> getApplications() {
         return applications;
     }
 
-    public void setApplications(Set<Application> applications) {
+    public void setApplications(List<Application> applications) {
         this.applications = applications;
     }
 

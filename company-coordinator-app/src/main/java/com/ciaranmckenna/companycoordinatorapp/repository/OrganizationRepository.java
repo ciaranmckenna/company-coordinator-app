@@ -10,7 +10,6 @@ import org.springframework.stereotype.Repository;
 public interface OrganizationRepository extends JpaRepository<Organization, Long> {
 
 
-    // find organization by the organization name that has been passed in
     @Query("FROM Organization WHERE name =?1")
     Organization findByOrganizationNameLike(@Param("name") String name);
 

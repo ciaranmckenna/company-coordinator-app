@@ -22,11 +22,6 @@ public class OrgAppMapper {
     public OrgAppMapper() {
     }
 
-    public OrgAppMapper(Long organizationId, Long applicationId) {
-        this.organizationId = organizationId;
-        this.applicationId = applicationId;
-    }
-
     public Long getId() {
         return id;
     }
