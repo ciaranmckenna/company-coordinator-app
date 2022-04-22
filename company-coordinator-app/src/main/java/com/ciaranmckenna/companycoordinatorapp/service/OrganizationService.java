@@ -28,7 +28,7 @@ public class OrganizationService {
     }
 
     public Organization getOrganizationById(final Long id){
-        return organizationRepository.findById(id).orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND));
+        return organizationRepository.findById(id).orElseThrow((ResourceNotFoundException::new));
     }
 
     public List<Application> getAllApplicationsWithOrganizationId(final Long id){
