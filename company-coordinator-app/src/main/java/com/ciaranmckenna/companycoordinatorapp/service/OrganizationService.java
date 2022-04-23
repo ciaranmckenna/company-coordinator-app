@@ -24,20 +24,40 @@ public class OrganizationService {
 
 
     public List<Organization> getAllOrganizations(){
-        return organizationRepository.findAll();
+
+        try {
+            return organizationRepository.findAll();
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new ResourceNotFoundException(String.valueOf(HttpStatus.NOT_FOUND));
+        }
     }
 
-    public Organization getOrganizationById(final Long id){
+    /*public Organization getOrganizationById(final Long id) throws ResourceNotFoundException{
         return organizationRepository.findById(id).orElseThrow((ResourceNotFoundException::new));
+    }*/
+
+    public Organization getOrganizationById(final Long id) {
+        try {
+            return organizationRepository.findById(id).get();
+        } catch (ResourceNotFoundException e) {
+            e.printStackTrace();
+            throw new ResourceNotFoundException(String.valueOf(HttpStatus.NOT_FOUND));
+        }
     }
 
     public List<Application> getAllApplicationsWithOrganizationId(final Long id){
         return organizationRepository.findById(id).map(Organization::getApplications).orElseThrow(ResourceNotFoundException::new);
     }
 
-    public List<Application> getAllApplicationsWithOrganizationIdStartingWithLetterOrder(final Long id, final String letter, Pageable pageable){
-
-        return applicationRepository.findByOrgIdAndApplicationNameLikeOrder(id, letter, pageable);
+    public List<Application> getAllApplicationsWithOrganizationIdStartingWithLetterOrder(final Long id, final String letter, Pageable pageable) throws ResourceNotFoundException{
+        // NOT THROWING THE EXCEPTION AS EXPECTED
+        try {
+            return applicationRepository.findByOrgIdAndApplicationNameLikeOrder(id, letter, pageable);
+        } catch (ResourceNotFoundException e) {
+            e.printStackTrace();
+            throw new ResourceNotFoundException(String.valueOf(HttpStatus.NOT_FOUND));
+        }
     }
 
     public Organization findByOrganizationName(final String letter){
