@@ -29,15 +29,15 @@ Run this command from your terminal: `java -jar ./target/company-coordinator-app
 
 Your API should respond to the following API calls:
  
-GET /organizations 
-GET /organizations/{id} 
-GET /organizations/{id}/applications
+`GET /organizations`
+`GET /organizations/{id}` 
+`GET /organizations/{id}/applications`
  
-The caller should be able to filter the endpoint: /organizations/{id}/applications 
-Query (a partial name)
-Order=(column to order on),(asc|desc)
+The caller should be able to filter the endpoint: `/organizations/{id}/applications` 
+query (a partial name)
+sort=(column to sort on),(asc|desc)
  
 For example:
-/organizations/3/applications?query=C (returns the data with applications beginning with C)
-organizations/3/applications?query=C&sort=name,desc (returns the data with applications beginning with C and sorts in asc or desc)
+`/organizations/3/applications?query=C` (returns the data with applications beginning with C)
+`/organizations/3/applications?query=C&sort=name,desc` (returns the data with applications beginning with C and sorts in desc)
 
