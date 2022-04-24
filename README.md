@@ -24,3 +24,20 @@ you should also have access to `javac`. You can check this by running:
 ### Up and Running Options
 
 Run this command from your terminal: `java -jar ./target/company-coordinator-app-0.0.1-SNAPSHOT.jar`
+
+### API Calls
+
+Your API should respond to the following API calls:
+ 
+GET /organizations 
+GET /organizations/{id} 
+GET /organizations/{id}/applications
+ 
+The caller should be able to filter the endpoint: /organizations/{id}/applications 
+Query (a partial name)
+Order=(column to order on),(asc|desc)
+ 
+For example:
+/organizations/3/applications?query=C (returns the data with applications beginning with C)
+organizations/3/applications?query=C&sort=name,desc (returns the data with applications beginning with C and sorts in asc or desc)
+
