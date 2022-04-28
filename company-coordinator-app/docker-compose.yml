@@ -1,0 +1,10 @@
+version: '2'
+services:
+  company-coordinator-app:
+    container_name: 'company-coordinator-app'
+    build:
+        context: /Users/ciaran/cmkdev/company-coordinator-project/company-coordinator-app
+        dockerfile: Dockerfile
+    image: springio/gs-spring-boot-docker
+    ports:
+      - "8080:8080"

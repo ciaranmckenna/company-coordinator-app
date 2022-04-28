@@ -31,8 +31,8 @@ ENV JAVA_MINIMAL=/opt/jre
 ENV PATH="$PATH:$JAVA_MINIMAL/bin"
 
 COPY --from=packager "$JAVA_MINIMAL" "$JAVA_MINIMAL"
-COPY "build/libs/spring-boot-demo.jar" "/app.jar"
+COPY "build/libs/company-coordinator-app-0.0.1-SNAPSHOT.jar" "/company-coordinator-app.jar"
 
 EXPOSE 8080
-CMD [ "-jar", "/app.jar" ]
+CMD [ "-jar", "/company-coordinator-app.jar" ]
 ENTRYPOINT [ "java" ]
