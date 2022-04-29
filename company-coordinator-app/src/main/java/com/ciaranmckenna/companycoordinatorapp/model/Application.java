@@ -33,10 +33,11 @@ public class Application {
         this.description = description;
     }
 
-    public Application(Long id, String name, String description) {
+    public Application(Long id, String name, String description, Platform platform) {
         this.id = id;
         this.name = name;
         this.description = description;
+        this.platform = platform;
     }
 
     public Long getId() {

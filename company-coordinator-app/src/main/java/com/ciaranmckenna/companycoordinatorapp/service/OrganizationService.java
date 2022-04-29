@@ -40,7 +40,7 @@ public class OrganizationService {
         return applicationRepository.findByOrgIdAndApplicationNameLikeOrder(id, letter, pageable);
     }
 
-    public Organization findByOrganizationName(final String letter){
+    public List<Organization> findByOrganizationName(final String letter){
         return organizationRepository.findByOrganizationNameLike(letter);
     }
 

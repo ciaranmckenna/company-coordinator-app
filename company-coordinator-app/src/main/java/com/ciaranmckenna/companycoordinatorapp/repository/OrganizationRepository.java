@@ -6,11 +6,13 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface OrganizationRepository extends JpaRepository<Organization, Long> {
 
 
     @Query("FROM Organization WHERE name =?1")
-    Organization findByOrganizationNameLike(@Param("name") String name);
+    List<Organization> findByOrganizationNameLike(@Param("name") String name);
 
 }

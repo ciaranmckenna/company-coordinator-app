@@ -33,7 +33,7 @@ public class OrganizationController {
     }
 
     @GetMapping("/name")
-    public ResponseEntity<Organization> getOrganizationByName(String name) {
+    public ResponseEntity<List<Organization>> getOrganizationByName(String name) {
         return ResponseEntity.ok(organizationService.findByOrganizationName(name));
     }
 
