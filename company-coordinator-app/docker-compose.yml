@@ -1,0 +1,11 @@
+version: '2'
+services:
+  docker-setup:
+    container_name: docker-setup
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: cmk/spring-boot-docker:latest
+    ports:
+      - 8080:8080
+
