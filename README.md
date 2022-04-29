@@ -23,9 +23,11 @@ you should also have access to `javac`. You can check this by running:
 
 ### Up and Running Options
 
-Run this command from your terminal: `java -jar ./target/company-coordinator-app-0.0.1-SNAPSHOT.jar`
+To run this locally, use this command in your terminal: `java -jar ./target/company-coordinator-app-0.0.1-SNAPSHOT.jar`
 
 To run as a Docker image with Spring profiles ('prod') run: `docker run -e "SPRING_PROFILES_ACTIVE=prod" -p 8080:8080 -t springio/gs-spring-boot-docker`
+
+To run with docker-compose `docker-compose build && docker-compose up`
 
 ### API Calls
 
